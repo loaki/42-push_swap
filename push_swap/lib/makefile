@@ -64,7 +64,7 @@ OBJB		= ${SRCSB:.c=.o}
 CFLAGS		= -Wall -Wextra -Werror
 
 .c.o:	
-			cc ${CFLAGS} -c $< -o ${<:.c=.o}
+			gcc ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	libft.h ${OBJS}
 			ar rc ${NAME} ${OBJS}
