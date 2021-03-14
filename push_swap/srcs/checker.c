@@ -13,6 +13,11 @@ int main(int ac, char **av){
     }
     print_stacks(&st);
     printf("instr : |%s|\n", st.instr);
-    check_stack(&st);
+    exec_instr(&st);
+    if(!check_stack(&st))
+        printf("\033[31;01mKO\n\033[00m");
+    else
+        printf("\033[32;01mOK\n\033[00m");
+    printf("nb_instr : %d\n", st.nb_instr);
     return(0);
 }

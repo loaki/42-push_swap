@@ -15,6 +15,7 @@ typedef struct	s_struct
 	t_stack		stack_a;
 	t_stack		stack_b;
 	char		*instr;
+	int			nb_instr;
 }				t_struct;
 
 static void	apply_p(t_stack *dest, t_stack *source);
@@ -28,7 +29,7 @@ void		op_s(t_struct *st, char *instr);
 
 void print_stacks(t_struct *st);
 void exec_instr(t_struct *st);
-void check_stack(t_struct *st);
+int check_stack(t_struct *st);
 
 int		ft_strcmp(const char *s1, const char *s2);
 static int	instr_cmp(char *line);
@@ -41,5 +42,8 @@ int free_struct(t_struct *st);
 int check_arg(int ac, char **av);
 int realloc_stack(t_stack *stack, int nb);
 int parse_arg(t_struct *st, int ac, char **av);
+
+int sort_stack(t_struct *st);
+void very_bad_algo(t_struct *st);
 
 #endif

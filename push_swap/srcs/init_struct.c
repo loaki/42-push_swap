@@ -7,6 +7,7 @@ void init_struct(t_struct *st)
 	st->stack_b.tab = NULL;
 	st->stack_b.size = 0;
 	st->instr = 0;
+	st->nb_instr = 0;
 }
 
 int free_struct(t_struct *st)
