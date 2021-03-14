@@ -1,4 +1,4 @@
 int main()
 {
-    printf("rra\npb\nsa\nrra\npa\n\n");
+    printf("rra\npb\nsa\nrra\npa\n");
 }

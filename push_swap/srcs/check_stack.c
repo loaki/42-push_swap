@@ -1,5 +1,20 @@
 #include "push_swap.h"
 
+void print_stacks(t_struct *st)
+{
+    printf("stack a :");
+    for(int i = 0; i<st->stack_a.size; i++)
+    {
+        printf(" %d |", st->stack_a.tab[i]);
+    }
+    printf("\nstack b :");
+    for(int i = 0; i<st->stack_b.size; i++)
+    {
+        printf(" %d |", st->stack_b.tab[i]);
+    }
+    printf("\n");
+}
+
 void exec_instr(t_struct *st)
 {
     int     i;
@@ -17,7 +32,7 @@ void exec_instr(t_struct *st)
             op_r(st, instr[i]);
         if(instr[i][0] == 'r' && instr[i][1] == 'r')
             op_rr(st, instr[i]);
-        printf("\n-----------\ninstr : %s\n", instr[i]);
+        printf("-----------\ninstr : %s\n", instr[i]);
         print_stacks(st);
         i++;
     }
@@ -30,8 +45,6 @@ void check_stack(t_struct *st)
 
     i = 0;
     exec_instr(st);
-    printf("----------\n");
-    print_stacks(st);
     while(i < st->stack_a.size - 1)
     {
         if(st->stack_a.tab[i] > st->stack_a.tab[i + 1])

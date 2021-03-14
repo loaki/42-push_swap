@@ -17,8 +17,6 @@ typedef struct	s_struct
 	char		*instr;
 }				t_struct;
 
-void print_stacks(t_struct *st);
-
 static void	apply_p(t_stack *dest, t_stack *source);
 void		op_p(t_struct *st, char *instr);
 static void	apply_r(t_stack *stack);
@@ -28,6 +26,7 @@ void		op_rr(t_struct *st, char *instr);
 static void	apply_s(t_stack *stack);
 void		op_s(t_struct *st, char *instr);
 
+void print_stacks(t_struct *st);
 void exec_instr(t_struct *st);
 void check_stack(t_struct *st);
 

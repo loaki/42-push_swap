@@ -25,6 +25,8 @@ static int	check_if_valid_instr(t_struct *st, char buf[], int *index)
 	int instr_nb;
 
 	buf[*index] = '\0';
+	if(buf[0] == 0)
+		return(1);
 	if(!instr_cmp(buf))
 		return(0);
 	st->instr = ft_strjoin(ft_strjoin(st->instr, " "), buf);
@@ -42,10 +44,9 @@ int			check_instr(t_struct *st)
 	ft_bzero(buf, 5);
 	while((ret = read(0, buf + index, 1)) > 0)
 	{
-		printf("buf :%s\n", buf);
 		if(buf[index] == '\n' || index > 3)
 		{
-			if(ft_strcmp(buf, "\n") == 0)
+			if(index == 0)
 				return(1);
 			if(!check_if_valid_instr(st, buf, &index))
 				return(0);
@@ -54,7 +55,6 @@ int			check_instr(t_struct *st)
 		else
 			index++;
 	}
-	if(!check_if_valid_instr(st, buf, &index))
-		return(0);
-	return(1);
+	printf("%d", buf[0]);
+	return(check_if_valid_instr(st, buf, &index));
 }

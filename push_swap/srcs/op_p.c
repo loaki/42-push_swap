@@ -13,7 +13,6 @@ static void	apply_p(t_stack *dest, t_stack *source)
 	dest->size++;
 	while(i < source->size || i < dest->size)
 	{
-		printf("%d\n", i);
 		if(i < dest->size)
 			dest->tab[dest->size - i] = dest->tab[dest->size - i - 1];
 		if(i < source->size)
