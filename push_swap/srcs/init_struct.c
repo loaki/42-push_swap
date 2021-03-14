@@ -3,11 +3,10 @@
 void init_struct(t_struct *st)
 {
     st->stack_a.tab = NULL;
-	st->stack_a.start = 0;
 	st->stack_a.size = 0;
 	st->stack_b.tab = NULL;
-	st->stack_b.start = 0;
 	st->stack_b.size = 0;
+	st->instr = 0;
 }
 
 int free_struct(t_struct *st)

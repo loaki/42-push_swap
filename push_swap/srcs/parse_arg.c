@@ -2,11 +2,19 @@
 
 int check_arg(int ac, char **av)
 {
-    int i, j;
+    int i;
+    int j;
 
     i = 1;
     while(i < ac)
     {
+        j = 0;
+        while(j < i)
+        {
+            if(ft_strcmp(av[i], av[j]) == 0)
+                return(0);
+            j++;
+        }
         j = 0;
         while(av[i][j])
         {
@@ -20,39 +28,19 @@ int check_arg(int ac, char **av)
     return (1);
 }
 
-int realloc_stack(t_stack *stack, int nb)
-{
-	int *tmp;
-	int i;
-
-	tmp = (int*)malloc(sizeof(int) * (stack->size + 1));
-	if (!tmp)
-		return (0);
-	i = 0;
-	while (i < stack->size)
-	{
-		tmp[i] = stack->tab[i];
-		i++;
-	}
-	tmp[i] = nb;
-	if (stack->tab)
-		free(stack->tab);
-	stack->tab = tmp;
-	stack->size++;
-	return (1);
-}
-
 int parse_arg(t_struct *st, int ac, char **av)
 {
     int i;
 
     i = 1;
-    if(!check_arg(ac, av))
+    if(!check_arg(ac, av) || !(st->stack_a.tab = (int*)malloc(sizeof(int) * ac - 1)))
         return(0);
     while(i < ac)
     {
-        realloc_stack(&st->stack_a, ft_atoi(av[i]));
+        st->stack_a.tab[i - 1] = ft_atoi(av[i]);
         i++;
     }
+    st->stack_a.size = ac - 1;
+    st->stack_b.tab = (int*)malloc(sizeof(int) * (st->stack_a.size));
     return(1);
 }
