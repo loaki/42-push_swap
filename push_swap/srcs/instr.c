@@ -55,6 +55,5 @@ int			check_instr(t_struct *st)
 		else
 			index++;
 	}
-	printf("%d", buf[0]);
 	return(check_if_valid_instr(st, buf, &index));
 }

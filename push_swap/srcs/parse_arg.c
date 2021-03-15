@@ -41,6 +41,7 @@ int parse_arg(t_struct *st, int ac, char **av)
         i++;
     }
     st->stack_a.size = ac - 1;
-    st->stack_b.tab = (int*)malloc(sizeof(int) * (st->stack_a.size));
+    if(!(st->stack_b.tab = (int*)malloc(sizeof(int) * (st->stack_a.size))))
+        return(0);
     return(1);
 }

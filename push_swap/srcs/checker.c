@@ -14,6 +14,7 @@ int main(int ac, char **av){
     print_stacks(&st);
     printf("instr : |%s|\n", st.instr);
     exec_instr(&st);
+    print_stacks(&st);
     if(!check_stack(&st))
         printf("\033[31;01mKO\n\033[00m");
     else

@@ -17,10 +17,8 @@ static void	apply_rr(t_stack *stack)
 
 void		op_rr(t_struct *st, char *instr)
 {
-	if (st->stack_a.size > 1
-		&& (ft_strcmp(instr, "rra") == 0 || ft_strcmp(instr, "rrr") == 0))
+	if (st->stack_a.size > 1 && (ft_strcmp(instr, "rra") == 0 || ft_strcmp(instr, "rrr") == 0))
 		apply_rr(&st->stack_a);
-	if (st->stack_b.size > 1
-		&& (ft_strcmp(instr, "rrb") == 0 || ft_strcmp(instr, "rrr") == 0))
+	if (st->stack_b.size > 1 && (ft_strcmp(instr, "rrb") == 0 || ft_strcmp(instr, "rrr") == 0))
 		apply_rr(&st->stack_b);
 }

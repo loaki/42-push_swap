@@ -14,8 +14,8 @@ static void	apply_s(t_stack *stack)
 
 void		op_s(t_struct *st, char *instr)
 {
-	if (ft_strcmp(instr, "sa") == 0 || ft_strcmp(instr, "ss") == 0)
+	if (st->stack_a.size > 1 && ft_strcmp(instr, "sa") == 0 || ft_strcmp(instr, "ss") == 0)
 		apply_s(&st->stack_a);
-	if (ft_strcmp(instr, "sb") == 0 || ft_strcmp(instr, "ss") == 0)
+	if (st->stack_b.size > 1 && ft_strcmp(instr, "sb") == 0 || ft_strcmp(instr, "ss") == 0)
 		apply_s(&st->stack_b);
 }
