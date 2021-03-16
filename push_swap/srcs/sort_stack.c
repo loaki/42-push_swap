@@ -58,7 +58,7 @@ int sort_stack(t_struct *st)
     for(int j = 0; j < st->stack_a.size; j++)
         a_save[j] = st->stack_a.tab[j];
 
-    while((double)(end - start)/CLOCKS_PER_SEC < 20)
+    while((double)(end - start)/CLOCKS_PER_SEC < 10)
     {
         end = clock();
         st->nb_instr = 0;
@@ -137,5 +137,4 @@ int sort_stack(t_struct *st)
     printf("\n\n\n\n--------------------------------final-------------------------\n\n\n\n");
     printf("nb_instr = %d\n", nb_ins);
     printf("%s\n", low_instr);
-    printf("nb : %d\n", st->nb_instr);
 }

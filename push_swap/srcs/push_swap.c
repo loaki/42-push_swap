@@ -14,4 +14,5 @@ int main(int ac, char **av){
     //print_stacks(&st);
     sort_stack(&st);
     //printf("nb_instr : %d\n", st.nb_instr);
+    free_struct(&st);
 }

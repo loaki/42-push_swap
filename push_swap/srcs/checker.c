@@ -20,5 +20,6 @@ int main(int ac, char **av){
     else
         printf("\033[32;01mOK\n\033[00m");
     printf("nb_instr : %d\n", st.nb_instr);
+    free_struct(&st);
     return(0);
 }
