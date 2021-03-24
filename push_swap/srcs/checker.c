@@ -3,6 +3,7 @@
 int main(int ac, char **av){
     t_struct    st;
 
+    printf("check\n");
     if(ac == 1)
         return(0);
     init_struct(&st);

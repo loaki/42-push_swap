@@ -12,15 +12,18 @@ void init_struct(t_struct *st)
 
 int free_struct(t_struct *st)
 {
-    if (st->stack_a.tab)
+    if(st->stack_a.tab)
 	{
 		free(st->stack_a.tab);
 		st->stack_a.tab = NULL;
 	}
-	if (st->stack_b.tab)
+	if(st->stack_b.tab)
 	{
-		free(st->stack_b.tab);
+		//seg fault ?
+		//free(st->stack_b.tab);
 		st->stack_b.tab = NULL;
 	}
+	if(st->instr)
+		free(st->instr);
 	return (0);
 }
