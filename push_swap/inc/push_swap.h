@@ -14,6 +14,8 @@ typedef struct	s_struct
 {
 	t_stack		stack_a;
 	t_stack		stack_b;
+	t_stack		pivot;
+	t_stack		working_stack;
 	char		*instr;
 	int			nb_instr;
 }				t_struct;
@@ -30,6 +32,8 @@ void		op_s(t_struct *st, char *instr);
 void print_stacks(t_struct *st);
 void exec_instr(t_struct *st);
 int check_stack(t_struct *st);
+int check_sort(t_struct *st);
+int check_rsort(t_struct *st);
 
 int		ft_strcmp(const char *s1, const char *s2);
 static int	instr_cmp(char *line);
@@ -43,7 +47,12 @@ int check_arg(int ac, char **av);
 int realloc_stack(t_stack *stack, int nb);
 int parse_arg(t_struct *st, int ac, char **av);
 
-int sort_stack(t_struct *st);
+int    quick_sort(t_struct *st);
+
 void very_bad_algo(t_struct *st);
+void rand_sort(t_struct *st);
+void	sort_three(t_struct *st);
+void	small_sort(t_struct *st);
+int sort_stack(t_struct *st);
 
 #endif

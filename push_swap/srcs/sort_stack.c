@@ -241,6 +241,7 @@ int sort_stack(t_struct *st)
     st->instr = 0;
     for(int j = 0; j < st->stack_a.size; j++)
         st->stack_a.tab[j] = a_save[j];*/
-    small_sort(st);
+    //small_sort(st);
+    quick_sort(st);
     //printf("small_sort : %d instr\n" , st->nb_instr);
 }

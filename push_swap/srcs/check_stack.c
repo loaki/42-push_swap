@@ -56,3 +56,31 @@ int check_stack(t_struct *st)
     }
     return(1);
 }
+
+int check_sort(t_struct *st)
+{
+    int i;
+
+    i = 0;
+    while(i < st->stack_a.size - 1)
+    {
+        if(st->stack_a.tab[i] > st->stack_a.tab[i + 1])
+            return(0);
+        i++;
+    }
+    return(1);  
+}
+
+int check_rsort(t_struct *st)
+{
+    int i;
+
+    i = 0;
+    while(i < st->stack_b.size - 1)
+    {
+        if(st->stack_b.tab[i] < st->stack_b.tab[i + 1])
+            return(0);
+        i++;
+    }
+    return(1);
+}
