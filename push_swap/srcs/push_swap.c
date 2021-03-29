@@ -11,8 +11,8 @@ int main(int ac, char **av){
         write(2, "Error\n", 6);
         return(free_struct(&st));
     }
-    //print_stacks(&st);
     sort_stack(&st);
+    //print_stacks(&st);
     //printf("nb_instr : %d\n", st.nb_instr);
-    free_struct(&st);
+    //free_struct(&st);
 }

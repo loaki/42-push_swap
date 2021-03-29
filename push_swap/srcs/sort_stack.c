@@ -150,19 +150,19 @@ void	sort_three(t_struct *st)
 		return ;
 	if (st->stack_a.tab[0] > st->stack_a.tab[1] && st->stack_a.tab[0] > st->stack_a.tab[2])
     {
-        printf("ra\n");
+        //printf("ra\n");
 		st->instr = "ra";
         exec_instr(st);
     }
 	else if (st->stack_a.tab[1] > st->stack_a.tab[0] && st->stack_a.tab[1] > st->stack_a.tab[2])
     {
-        printf("rra\n");
+        //printf("rra\n");
 		st->instr = "rra";
         exec_instr(st);
     }
 	if (st->stack_a.tab[0] > st->stack_a.tab[1])
     {
-        printf("sa\n");
+        //printf("sa\n");
 		st->instr = "sa";
         exec_instr(st);
     }
@@ -193,32 +193,32 @@ void	small_sort(t_struct *st)
 		if (index < st->stack_a.size / 2)
 			while (index--)
             {
-                printf("ra\n");
+                //printf("ra\n");
                 st->instr = "ra";
                 exec_instr(st);
             }
 		else
 			while (index++ < st->stack_a.size)
             {
-                printf("rra\n");
+                //printf("rra\n");
 				st->instr = "rra";
                 exec_instr(st);
             }
-        printf("pb\n");
+        //printf("pb\n");
 		st->instr = "pb";
         exec_instr(st);
 	}
 	sort_three(st);
 	while (st->stack_b.size != 0)
     {
-        printf("pa\n");
+        //printf("pa\n");
 		st->instr = "pa";
         exec_instr(st);
     }
 }
 
 int sort_stack(t_struct *st)
-{/*
+{
     int s_save = st->stack_a.size;
     int *a_save = (int*)malloc(sizeof(int) * (st->stack_a.size));
     for(int j = 0; j < st->stack_a.size; j++)
@@ -240,8 +240,17 @@ int sort_stack(t_struct *st)
     st->stack_b.size = 0;
     st->instr = 0;
     for(int j = 0; j < st->stack_a.size; j++)
-        st->stack_a.tab[j] = a_save[j];*/
-    //small_sort(st);
+        st->stack_a.tab[j] = a_save[j];
+    small_sort(st);
+    printf("small_sort : %d instr\n" , st->nb_instr);
+
+    st->nb_instr = 0;
+    st->stack_a.size = s_save;
+    st->stack_b.size = 0;
+    st->instr = 0;
+    for(int j = 0; j < st->stack_a.size; j++)
+        st->stack_a.tab[j] = a_save[j];
     quick_sort(st);
-    //printf("small_sort : %d instr\n" , st->nb_instr);
+    printf("quick_sort : %d instr\n" , st->nb_instr);
+    return(1);
 }
