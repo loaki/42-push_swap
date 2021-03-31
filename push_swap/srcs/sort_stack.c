@@ -57,7 +57,7 @@ void rand_sort(t_struct *st)
     int *a_save = (int*)malloc(sizeof(int) * (st->stack_a.size));
     for(int j = 0; j < st->stack_a.size; j++)
         a_save[j] = st->stack_a.tab[j];
-    while((double)(end - start)/CLOCKS_PER_SEC < 10)
+    while((double)(end - start)/CLOCKS_PER_SEC < 30)
     {
         st->nb_instr = 0;
         st->stack_a.size = s_save;
@@ -218,20 +218,12 @@ void	small_sort(t_struct *st)
 }
 
 int sort_stack(t_struct *st)
-{/*
+{
     int s_save = st->stack_a.size;
     int *a_save = (int*)malloc(sizeof(int) * (st->stack_a.size));
     for(int j = 0; j < st->stack_a.size; j++)
         a_save[j] = st->stack_a.tab[j];
-    very_bad_algo(st);
-    printf("very_bad_algo : %d instr\n" , st->nb_instr);
-
-    st->nb_instr = 0;
-    st->stack_a.size = s_save;
-    st->stack_b.size = 0;
-    st->instr = 0;
-    for(int j = 0; j < st->stack_a.size; j++)
-        st->stack_a.tab[j] = a_save[j];
+    
     rand_sort(st);
     printf("rand_sort : %d instr\n" , st->nb_instr);
 
@@ -244,14 +236,30 @@ int sort_stack(t_struct *st)
     small_sort(st);
     printf("small_sort : %d instr\n" , st->nb_instr);
 
+
     st->nb_instr = 0;
     st->stack_a.size = s_save;
     st->stack_b.size = 0;
     st->instr = 0;
     for(int j = 0; j < st->stack_a.size; j++)
         st->stack_a.tab[j] = a_save[j];
-    quick_sort(st);
-    printf("quick_sort : %d instr\n" , st->nb_instr);
-    return(1);*/
     insertion_sort(st);
+    printf("insertion_sort : %d instr\n", st->nb_instr);
+    //free(st->chunk.tab);
+    //st->chunk.tab = NULL;
+/*
+    for(int i = 20; i > 0; i--)
+    {
+        st->nb_instr = 0;
+        st->stack_a.size = s_save;
+        st->stack_b.size = 0;
+        st->instr = 0;
+        for(int j = 0; j < st->stack_a.size; j++)
+            st->stack_a.tab[j] = a_save[j];
+        insertion_sort(st, i);
+        printf("chunk = %d insertion_sort : %d instr\n", i , st->nb_instr);
+        free(st->chunk.tab);
+        st->chunk.tab = NULL;
+    }*/
+    return(1);
 }

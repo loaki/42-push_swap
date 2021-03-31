@@ -48,10 +48,12 @@ int check_arg(int ac, char **av);
 int realloc_stack(t_stack *stack, int nb);
 int parse_arg(t_struct *st, int ac, char **av);
 
-int    quick_sort(t_struct *st);
-
-int		insertion_sort(t_struct *st);
 int    get_median(t_struct *st);
+int     get_high(t_stack stack);
+int     get_low(t_stack stack);
+int get_index(t_stack stack, int nb);
+void    insert_to_b(t_struct *st, int nb_move, char *instr);
+int		insertion_sort(t_struct *st);
 
 void very_bad_algo(t_struct *st);
 void rand_sort(t_struct *st);

@@ -17,7 +17,7 @@ OBJLIB_PATH = ./obj
 
 INC_NAME = push_swap.h
 SRC_NAME = push_swap.c checker.c init_struct.c parse_arg.c instr.c op_p.c op_r.c\
-	op_rr.c op_s.c check_stack.c sort_stack.c quick_sort.c insertion_sort.c
+	op_rr.c op_s.c check_stack.c sort_stack.c insertion_sort.c
 LIB_NAME = ft_atoi.c ft_isascii.c ft_lstadd_front_bonus.c ft_lstmap_bonus.c\
 	ft_memcmp.c ft_putendl_fd.c ft_strdup.c ft_strmapi.c ft_substr.c ft_bzero.c\
 	ft_isdigit.c ft_lstclear_bonus.c ft_lstnew_bonus.c ft_memcpy.c ft_putnbr_fd.c\
@@ -27,7 +27,7 @@ LIB_NAME = ft_atoi.c ft_isascii.c ft_lstadd_front_bonus.c ft_lstmap_bonus.c\
 	ft_strrchr.c ft_isalpha.c ft_lstadd_back_bonus.c ft_lstlast_bonus.c ft_memchr.c ft_putchar_fd.c\
 	ft_strchr.c ft_strlen.c ft_strtrim.c
 PUSH_SWAP_OBJ_NAME = push_swap.o init_struct.o parse_arg.o instr.o op_p.o op_r.o op_rr.o op_s.o\
-	check_stack.o sort_stack.o quick_sort.o insertion_sort.o
+	check_stack.o sort_stack.o insertion_sort.o
 CHECKER_OBJ_NAME = checker.o init_struct.o parse_arg.o instr.o op_p.o op_r.o op_rr.o op_s.o\
 	check_stack.o
 OBJ_NAME = $(SRC_NAME:.c=.o)
