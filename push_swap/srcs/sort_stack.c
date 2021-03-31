@@ -57,7 +57,7 @@ void rand_sort(t_struct *st)
     int *a_save = (int*)malloc(sizeof(int) * (st->stack_a.size));
     for(int j = 0; j < st->stack_a.size; j++)
         a_save[j] = st->stack_a.tab[j];
-    while((double)(end - start)/CLOCKS_PER_SEC < 3)
+    while((double)(end - start)/CLOCKS_PER_SEC < 10)
     {
         st->nb_instr = 0;
         st->stack_a.size = s_save;
@@ -70,7 +70,7 @@ void rand_sort(t_struct *st)
             st->stack_b.tab[j] = 0;
         }
         //print_stacks(st);
-        while(!check_stack(st) && (double)(end - start)/CLOCKS_PER_SEC < 2)
+        while(!check_stack(st) && (double)(end - start)/CLOCKS_PER_SEC < 10)
         {
             if(nb_ins != -1 && st->nb_instr > nb_ins)
                 break;
@@ -218,7 +218,7 @@ void	small_sort(t_struct *st)
 }
 
 int sort_stack(t_struct *st)
-{
+{/*
     int s_save = st->stack_a.size;
     int *a_save = (int*)malloc(sizeof(int) * (st->stack_a.size));
     for(int j = 0; j < st->stack_a.size; j++)
@@ -252,5 +252,6 @@ int sort_stack(t_struct *st)
         st->stack_a.tab[j] = a_save[j];
     quick_sort(st);
     printf("quick_sort : %d instr\n" , st->nb_instr);
-    return(1);
+    return(1);*/
+    insertion_sort(st);
 }

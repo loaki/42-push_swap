@@ -14,6 +14,7 @@ typedef struct	s_struct
 {
 	t_stack		stack_a;
 	t_stack		stack_b;
+	t_stack		chunk;
 	t_stack		pivot;
 	t_stack		working_stack;
 	char		*instr;
@@ -48,6 +49,9 @@ int realloc_stack(t_stack *stack, int nb);
 int parse_arg(t_struct *st, int ac, char **av);
 
 int    quick_sort(t_struct *st);
+
+int		insertion_sort(t_struct *st);
+int    get_median(t_struct *st);
 
 void very_bad_algo(t_struct *st);
 void rand_sort(t_struct *st);

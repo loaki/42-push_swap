@@ -40,6 +40,11 @@ int free_struct(t_struct *st)
 		free(st->working_stack.tab);
 		st->working_stack.tab = NULL;
 	}
+	if(st->chunk.tab)
+	{
+		free(st->chunk.tab);
+		st->chunk.tab = NULL;
+	}
 	write(1, "5\n", 2);
 	if(st->instr)
 		free(st->instr);
