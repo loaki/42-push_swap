@@ -14,7 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	t_struct 	st;
+	t_struct	st;
 	char		**instr;
 	int			i;
 
@@ -22,14 +22,14 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	init_struct(&st);
-	if (!parse_arg(&st, ac, av) || !check_instr(&st))
+	if (!parse_arg(&st, ac, av) || !check_instr(&st) ||
+	!(instr = ft_split(st.instr, ' ')))
 	{
 		write(2, "Error\n", 6);
 		return (free_struct(&st));
 	}
 	printf("instr : |%s|\n", st.instr);
-	instr = ft_split(st.instr, ' ');
-	while(instr[++i])
+	while (instr[++i])
 		exec_instr(&st, instr[i], 0);
 	print_stack(&st);
 	if (!check_stack(&st))
