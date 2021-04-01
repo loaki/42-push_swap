@@ -29,7 +29,8 @@ static int	check_if_valid_instr(t_struct *st, char buf[], int *index)
 		return(1);
 	if(!instr_cmp(buf))
 		return(0);
-	st->instr = ft_strjoin(ft_strjoin(st->instr, " "), buf);
+	if (!(st->instr = ft_strjoin(ft_strjoin(st->instr, " "), buf)))
+		return(0);
 	*index = 0;
 	return(1);
 }

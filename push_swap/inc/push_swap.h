@@ -30,8 +30,8 @@ void		op_rr(t_struct *st, char *instr);
 static void	apply_s(t_stack *stack);
 void		op_s(t_struct *st, char *instr);
 
-void print_stacks(t_struct *st);
-void exec_instr(t_struct *st);
+void	print_stack(t_struct *st);
+void	exec_instr(t_struct *st, char *op, int key);
 int check_stack(t_struct *st);
 int check_sort(t_struct *st);
 int check_rsort(t_struct *st);
@@ -48,6 +48,7 @@ int check_arg(int ac, char **av);
 int realloc_stack(t_stack *stack, int nb);
 int parse_arg(t_struct *st, int ac, char **av);
 
+void	fill_chunk(t_struct *st, int *cp_stack);
 int    get_median(t_struct *st);
 int     get_high(t_stack stack);
 int     get_low(t_stack stack);
@@ -55,8 +56,6 @@ int get_index(t_stack stack, int nb);
 void    insert_to_b(t_struct *st, int nb_move, char *instr);
 int		insertion_sort(t_struct *st);
 
-void very_bad_algo(t_struct *st);
-void rand_sort(t_struct *st);
 void	sort_three(t_struct *st);
 void	small_sort(t_struct *st);
 int sort_stack(t_struct *st);

@@ -13,9 +13,9 @@
 #include <unistd.h>
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_atoi(const char *str, int *overflow)
 {
-	int nb;
+	long long nb;
 	int i;
 	int s;
 
@@ -36,6 +36,11 @@ int		ft_atoi(const char *str)
 	while (str[i] > 47 && str[i] < 58)
 	{
 		nb = nb * 10 + str[i] - 48;
+		if (nb * s > 2147483647 || nb * s < -2147483648)
+		{
+			*overflow = 1;
+			return (nb * s);
+		}
 		i++;
 	}
 	return (nb * s);
