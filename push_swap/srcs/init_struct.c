@@ -22,6 +22,8 @@ void	init_struct(t_struct *st)
 	st->chunk.size = 0;
 	st->instr = 0;
 	st->nb_instr = 0;
+	st->opt_v = 0;
+	st->opt_c = 0;
 }
 
 int		free_struct(t_struct *st)

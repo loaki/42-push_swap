@@ -28,7 +28,6 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (free_struct(&st));
 	}
-	printf("instr : |%s|\n", st.instr);
 	while (instr[++i])
 		exec_instr(&st, instr[i], 0);
 	print_stack(&st);
@@ -37,6 +36,6 @@ int	main(int ac, char **av)
 	else
 		printf("\033[32;01mOK\n\033[00m");
 	printf("nb_instr : %d\n", st.nb_instr);
-	free_struct(&st);
+	//free_struct(&st);
 	return (0);
 }

@@ -15,10 +15,10 @@ typedef struct	s_struct
 	t_stack		stack_a;
 	t_stack		stack_b;
 	t_stack		chunk;
-	t_stack		pivot;
-	t_stack		working_stack;
 	char		*instr;
 	int			nb_instr;
+	int			opt_v;
+	int			opt_c;
 }				t_struct;
 
 static void	apply_p(t_stack *dest, t_stack *source);
@@ -44,7 +44,7 @@ int			check_instr(t_struct *st);
 void init_struct(t_struct *st);
 int free_struct(t_struct *st);
 
-int check_arg(int ac, char **av);
+int check_arg(t_struct *st, int ac, char **av);
 int realloc_stack(t_stack *stack, int nb);
 int parse_arg(t_struct *st, int ac, char **av);
 
@@ -59,5 +59,7 @@ int		insertion_sort(t_struct *st);
 void	sort_three(t_struct *st);
 void	small_sort(t_struct *st);
 int sort_stack(t_struct *st);
+
+void	display(t_struct *st, char *op);
 
 #endif

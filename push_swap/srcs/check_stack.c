@@ -36,6 +36,8 @@ void	exec_instr(t_struct *st, char *op, int key)
 		op_rr(st, op);
 	if (key == 1)
 		printf("%s\n", op);
+	if (key == 0 && (st->opt_v == 1 || st->opt_c == 1))
+		display(st, op);
 }
 
 int		check_stack(t_struct *st)
