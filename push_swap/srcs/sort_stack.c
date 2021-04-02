@@ -68,7 +68,8 @@ int sort_stack(t_struct *st)
 	else
 	{
 		//write(1, "insertion\n", 10);
-    	insertion_sort(st);
+		if(!insertion_sort(st))
+			return(0);
 		//write(1, "ins end\n", 8);
 	}
 	//print_stack(st);

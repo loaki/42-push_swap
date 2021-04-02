@@ -12,17 +12,6 @@
 
 #include "push_swap.h"
 
-void	print_stack(t_struct *st)
-{
-	printf("\n stack a :\n");
-	for(int i = 0; i < st->stack_a.size; i++)
-		printf(" %d |", st->stack_a.tab[i]);
-	printf("\n stack b :\n");
-	for(int i = 0; i < st->stack_b.size; i++)
-		printf(" %d |", st->stack_b.tab[i]);
-	printf("\n");
-}
-
 void	exec_instr(t_struct *st, char *op, int key)
 {
 	st->nb_instr++;

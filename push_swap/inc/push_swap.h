@@ -30,7 +30,6 @@ void		op_rr(t_struct *st, char *instr);
 static void	apply_s(t_stack *stack);
 void		op_s(t_struct *st, char *instr);
 
-void	print_stack(t_struct *st);
 void	exec_instr(t_struct *st, char *op, int key);
 int check_stack(t_struct *st);
 int check_sort(t_struct *st);
@@ -61,5 +60,11 @@ void	small_sort(t_struct *st);
 int sort_stack(t_struct *st);
 
 void	display(t_struct *st, char *op);
+
+int get_moy(t_stack stack, int start, int end);
+void print_a(t_struct *st, int i, int size_max, int display_max);
+void print_b(t_struct *st, int i, int size_max, int display_max);
+void print_ac(t_struct *st, int i, int size_max, int display_max);
+void print_bc(t_struct *st, int i, int size_max, int display_max);
 
 #endif

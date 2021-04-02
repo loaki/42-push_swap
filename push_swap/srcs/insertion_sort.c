@@ -29,7 +29,7 @@ void	fill_chunk(t_struct *st, int *cp_stack)
 	//write(1, "3\n", 2);
 	//free(cp_stack); cant free idk why
 	//write(1, "4\n", 2);
-	cp_stack = NULL;
+	//cp_stack = NULL;
 }
 
 int		get_median(t_struct *st)
@@ -60,6 +60,7 @@ int		get_median(t_struct *st)
 	}
 	//write(1, "m3\n", 3);
 	fill_chunk(st, cp_stack);
+	free(cp_stack);
 	//write(1, "m4\n", 3);
 	return (1);
 }

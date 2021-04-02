@@ -30,12 +30,11 @@ int	main(int ac, char **av)
 	}
 	while (instr[++i])
 		exec_instr(&st, instr[i], 0);
-	print_stack(&st);
 	if (!check_stack(&st))
-		printf("\033[31;01mKO\n\033[00m");
+		printf("KO\n");
 	else
-		printf("\033[32;01mOK\n\033[00m");
-	printf("nb_instr : %d\n", st.nb_instr);
-	//free_struct(&st);
+		printf("OK\n");
+	free(instr);
+	free_struct(&st);
 	return (0);
 }
