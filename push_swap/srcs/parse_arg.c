@@ -44,11 +44,8 @@ int parse_arg(t_struct *st, int ac, char **av)
 		i = 1;
 	overflow = 0;
 	st->stack_a.size = ac - i;
-	write(1, "alloc\n", 6);
     if(!check_arg(st, ac, av) || !(st->stack_a.tab = (int*)malloc(sizeof(int) * st->stack_a.size)))
         return	(0);
-	printf("%d\n", st->stack_a.tab);
-	write(1, "alloc\n", 6);
     while(i < ac)
     {
 		st->stack_a.tab[i - 1 - st->opt_v - st->opt_c] = ft_atoi(av[i], &overflow);

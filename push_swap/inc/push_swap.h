@@ -47,11 +47,14 @@ int check_arg(t_struct *st, int ac, char **av);
 int realloc_stack(t_stack *stack, int nb);
 int parse_arg(t_struct *st, int ac, char **av);
 
-void	fill_chunk(t_struct *st, int *cp_stack);
 int    get_median(t_struct *st);
 int     get_high(t_stack stack);
 int     get_low(t_stack stack);
 int get_index(t_stack stack, int nb);
+
+void	fill_chunk(t_struct *st, int *cp_stack);
+int		check_index(t_struct *st, int nb_move);
+void	insert_index(t_struct *st);
 void    insert_to_b(t_struct *st, int nb_move, char *instr);
 int		insertion_sort(t_struct *st);
 
