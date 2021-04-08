@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:26:25 by jfeuilla          #+#    #+#             */
-/*   Updated: 2021/04/01 13:26:25 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:16:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_moy(t_stack stack, int start, int end)
+int		get_moy(t_stack stack, int start, int end)
 {
 	int i;
 	int moy;
@@ -29,25 +29,11 @@ int get_moy(t_stack stack, int start, int end)
 	return (moy / (end - start));
 }
 
-void display(t_struct *st, char *op)
+void	print_stack(t_struct *st, int size_max, int display_max)
 {
 	int i;
-	int display_max;
-	int size_max;
 
 	i = 0;
-	if (st->stack_a.size > st->stack_b.size)
-		size_max = st->stack_a.size;
-	else
-		size_max = st->stack_b.size;
-	if (size_max > 15)
-		display_max = 15;
-	else
-		display_max = size_max;
-	st->instr = op;
-	printf("\e[1;1H\e[2J");
-	printf("%3s . Stack A   Stack B\n %d\n", op, st->nb_instr);
-	//printf("sa : %d sb : %d dis : %d si : %d\n", st->stack_a.size, st->stack_b.size, display_max, size_max);
 	while (i < display_max)
 	{
 		if (st->opt_c == 1)
@@ -62,5 +48,24 @@ void display(t_struct *st, char *op)
 		}
 		i++;
 	}
+}
+
+void	display(t_struct *st, char *op)
+{
+	int display_max;
+	int size_max;
+
+	if (st->stack_a.size > st->stack_b.size)
+		size_max = st->stack_a.size;
+	else
+		size_max = st->stack_b.size;
+	if (size_max > 15)
+		display_max = 15;
+	else
+		display_max = size_max;
+	st->instr = op;
+	printf("\e[1;1H\e[2J");
+	printf("%3s . Stack A   Stack B\n %d\n", op, st->nb_instr);
+	print_stack(st, size_max, display_max);
 	sleep(1);
 }

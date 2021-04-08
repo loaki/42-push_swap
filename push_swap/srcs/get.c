@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 22:51:14 by jfeuilla          #+#    #+#             */
-/*   Updated: 2021/03/31 22:51:14 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:09:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,33 @@ int		get_index(t_stack stack, int nb)
 		i++;
 	}
 	return (0);
+}
+
+void	get_rotate_a(t_struct *st, int nb_move)
+{
+	int i;
+
+	i = 0;
+	while (++i < st->chunk.size)
+	{
+		nb_move = 0;
+		while (st->stack_a.size > 1 && nb_move < st->stack_a.size)
+		{
+			if (st->stack_a.tab[nb_move] >= st->chunk.tab[i - 1] &&
+			st->stack_a.tab[nb_move] < st->chunk.tab[i])
+			{
+				insert_to_b(st, nb_move, "ra");
+				nb_move = 0;
+			}
+			else if (nb_move > 0 && st->stack_a.tab[st->stack_a.size -
+			nb_move] >= st->chunk.tab[i - 1] && st->stack_a.tab[st->stack_a.size
+			- nb_move] < st->chunk.tab[i])
+			{
+				insert_to_b(st, nb_move, "rra");
+				nb_move = 0;
+			}
+			else
+				nb_move++;
+		}
+	}
 }

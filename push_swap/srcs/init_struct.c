@@ -28,7 +28,6 @@ void	init_struct(t_struct *st)
 
 int		free_struct(t_struct *st)
 {
-	return (0);
 	if (st->stack_a.tab)
 	{
 		free(st->stack_a.tab);

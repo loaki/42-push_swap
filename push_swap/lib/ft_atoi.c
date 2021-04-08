@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 17:56:47 by jfeuilla          #+#    #+#             */
-/*   Updated: 2019/11/07 14:23:38 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:58:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int		ft_atoi(const char *str, int *overflow)
 {
-	long long nb;
-	int i;
-	int s;
+	long long	nb;
+	int			i;
+	int			s;
 
 	s = 1;
 	nb = 0;
@@ -27,20 +27,15 @@ int		ft_atoi(const char *str, int *overflow)
 	{
 		i++;
 	}
+	if (str[i] == 45)
+		s = s * -1;
 	if ((str[i] == 45) || (str[i] == 43))
-	{
-		if (str[i] == 45)
-			s = s * -1;
 		i++;
-	}
 	while (str[i] > 47 && str[i] < 58)
 	{
 		nb = nb * 10 + str[i] - 48;
 		if (nb * s > 2147483647 || nb * s < -2147483648)
-		{
 			*overflow = 1;
-			return (nb * s);
-		}
 		i++;
 	}
 	return (nb * s);

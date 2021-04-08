@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 22:51:55 by jfeuilla          #+#    #+#             */
-/*   Updated: 2021/03/31 22:51:55 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:09:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,36 +95,13 @@ void	insert_to_b(t_struct *st, int nb_move, char *instr)
 
 int		insertion_sort(t_struct *st)
 {
-	int i;
 	int nb_move;
 
-	i = 0;
 	st->chunk.size = (int)(0.01 * (double)st->stack_a.size + 6);
 	if (!(st->chunk.tab = (int *)malloc(sizeof(int) * (st->chunk.size + 1)))
 	|| !get_median(st))
 		return (0);
-	while (++i < st->chunk.size)
-	{
-		nb_move = 0;
-		while (st->stack_a.size > 1 && nb_move < st->stack_a.size)
-		{
-			if (st->stack_a.tab[nb_move] >= st->chunk.tab[i - 1] &&
-			st->stack_a.tab[nb_move] < st->chunk.tab[i])
-			{
-				insert_to_b(st, nb_move, "ra");
-				nb_move = 0;
-			}
-			else if (nb_move > 0 && st->stack_a.tab[st->stack_a.size -
-			nb_move] >= st->chunk.tab[i - 1] && st->stack_a.tab[st->stack_a.size
-			- nb_move] < st->chunk.tab[i])
-			{
-				insert_to_b(st, nb_move, "rra");
-				nb_move = 0;
-			}
-			else
-				nb_move++;
-		}
-	}
+	get_rotate_a(st, nb_move);
 	while (get_index(st->stack_b, get_high(st->stack_b)) != 0)
 	{
 		if (get_index(st->stack_b, get_high(st->stack_b)) <=
