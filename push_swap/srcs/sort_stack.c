@@ -32,11 +32,11 @@ void	small_sort(t_struct *st)
 	int	low;
 	int index;
 
-	while (st->stack_a.size > 3)
+	while (st->stack_a.size > 3 && !(index = 0))
 	{
 		low = st->stack_a.tab[0];
 		i = -1;
-		while (i++ < st->stack_a.size)
+		while (++i < st->stack_a.size)
 			if (st->stack_a.tab[i] < low)
 			{
 				low = st->stack_a.tab[i];
@@ -57,9 +57,9 @@ void	small_sort(t_struct *st)
 
 int		sort_stack(t_struct *st)
 {
-	if (st->stack_a.size < 10)
+	if (st->stack_a.size < 10 && !check_sort(st))
 		small_sort(st);
-	else
+	else if (!check_sort(st))
 	{
 		if (!insertion_sort(st))
 			return (0);

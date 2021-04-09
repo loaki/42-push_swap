@@ -50,7 +50,7 @@ $(PUSH_SWAP_NAME): $(OBJ) $(OBJLIB)
 $(CHECKER_NAME): $(OBJ) $(OBJLIB)
 	${CC} -Wall -Wextra -Werror -I ${INC_PATH} -o ${CHECKER_NAME} ${OBJLIB} ${CHECKER_OBJ}
 
-#valgrind --leak-check=full ./minishell
+#valgrind --leak-check=full
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
