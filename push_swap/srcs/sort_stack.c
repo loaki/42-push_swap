@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:23:16 by user42            #+#    #+#             */
-/*   Updated: 2021/04/08 17:46:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/19 19:31:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 void	sort_three(t_struct *st)
 {
 	if (st->stack_a.size != 3)
+	{
+		if (st->stack_a.size == 2 && st->stack_a.tab[0] > st->stack_a.tab[1])
+			exec_instr(st, "sa", 1);
 		return ;
+	}
 	if (st->stack_a.tab[0] > st->stack_a.tab[1] && st->stack_a.tab[0] >
 	st->stack_a.tab[2])
 		exec_instr(st, "ra", 1);
